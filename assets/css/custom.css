@@ -77,6 +77,8 @@ body {
         margin: 0;
         padding: 10px;
         text-align: center;
+        width: 100%; /* Ensure full width for links in mobile */
+        box-sizing: border-box;
     }
 
     .navbar {
@@ -88,11 +90,8 @@ body {
         margin-bottom: 10px;
     }
 
-    .navbar .nav-links {
-        display: flex;
+    .main-content {
         flex-direction: column;
-        align-items: center;
-        width: 100%;
     }
 
     .left-column {
@@ -105,5 +104,6 @@ body {
     .right-column {
         width: 100%;
         box-sizing: border-box;
+        margin-top: 0; /* Adjust margin-top to remove unnecessary space */
     }
 }
