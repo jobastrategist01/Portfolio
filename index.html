@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,6 +11,31 @@
     <link href="assets/js/navbar.css" rel="stylesheet">
     <link href="cache.htaccess">
     <title>Jorge Barros/Marketing Strategist</title>
+    <style>
+    /* Additional CSS for the dropdown */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        top: 45px; /* Adjust this value based on the height of your navbar */
+        right: 0;
+    }
+
+    .dropdown-content a {
+        padding: 12px 16px;
+        display: block;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+</style>
+
 </head>
 
 <body>
@@ -17,15 +43,21 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">MY PORTFOLIO&raquo;</div>
-            <div class="menu">
+            <div class="menu" id="menu">
                 <a href="#home">Home</a>
                 <a href="#cv">CV</a>
-                <a href="#projects">Projects</a>
+                <a href="projects.html">Projects</a>
             </div>
-            <div class="hamburger-menu">
+            <div class="hamburger-menu" onclick="toggleMenu()">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
+                <!-- Dropdown menu -->
+                <div class="dropdown-content" id="dropdownContent">
+                    <a href="#home">Home</a>
+                    <a href="#cv">CV</a>
+                    <a href="projects.html">Projects</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -38,7 +70,9 @@
                 <h2>Welcome!</h2>
                 <p class="subtitle">I'm a marketing analyst and my name is...</p>
                 <h1 class="main-heading">Jorge Barros</h1>
-                <p class="subtitle">In addition to my analytical skills, <b>I bring creativity to the table</b>, ensuring that marketing efforts not only <b>resonate with the audience but also stand out in the crowded digital landscape.</b></p>
+                <p class="subtitle">In addition to my analytical skills, <b>I bring creativity to the table</b>, ensuring
+                    that marketing efforts not only <b>resonate with the audience but also stand out in the crowded
+                        digital landscape.</b></p>
                 <h4>GET IN TOUCH:</h4>
                 <h5>City:<a href="">Toronto, CA</a></h5><br>
                 <h5>LinkedIn:<a href="">[Jobastrat...]</a></h5><br>
@@ -48,18 +82,29 @@
         </div>
 
         <div class="right-column" id="markdownContent">
-    <!-- Text content goes here -->
-    <div class="did-you-know-section">
-        <h1>DID YOU KNOW...?</h1>
-        <p class="special-paragraph">According to <a href="https://www.gartner.com/en/newsroom/press-releases/2023-05-09-gartner-identifies-the-top-ten-data-and-analytics-trends-for-20230">[Gartner]</a>, in <b>2021, approximately 90% of companies worldwide relied on descriptive analytics</b>, utilizing historical data to understand past occurrences. However, it is anticipated that by 2024, <b>a minimum of 60% of companies will not only employ descriptive analytics but also leverage predictive analytics.</b></p>
-        <h2>That's why you need me</h2>
-        <p></p>
-    </div>
-    
-</div>
+            <!-- Text content goes here -->
+            <div class="did-you-know-section">
+                <h1 class="did-you-know-title">DID YOU KNOW...?</h1>
+                <p class="special-paragraph">According to <a
+                        href="https://www.gartner.com/en/newsroom/press-releases/2023-05-09-gartner-identifies-the-top-ten-data-and-analytics-trends-for-20230">[Gartner]</a>,
+                    in <b>2021, approximately 90% of companies worldwide relied on descriptive analytics</b>, utilizing
+                    historical data to understand past occurrences. However, it is anticipated that by 2024, <b>a minimum
+                        of 60% of companies will not only employ descriptive analytics but also leverage predictive
+                        analytics.</b></p>
+                <h2>That's why you need me</h2>
+                <p></p>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        function toggleMenu() {
+            var dropdownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
+        }
+    </script>
 </body>
+
 </html>
