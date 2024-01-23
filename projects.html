@@ -91,46 +91,65 @@
     <!-- Link Showdown from unpkg -->
     <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
 
-    <script>
-        function loadReadme() {
-            var readmeContainer = document.getElementById('readme-content');
-            var readmeUrl = 'https://raw.githubusercontent.com/jobastrategist01/Portfolio/main/README.md';
+<script>
+    function toggleMenu() {
+        var dropdownContent = document.getElementById("dropdownContent");
+        dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
+    }
 
-            fetch(readmeUrl)
-                .then(response => response.text())
-                .then(data => {
-                    var converter = new showdown.Converter();
-                    var htmlContent = converter.makeHtml(data);
-                    readmeContainer.innerHTML = htmlContent;
+    // Function to load and render the content of the README.md
+    function loadReadme() {
+        var readmeContainer = document.getElementById('readme-content');
 
-                    var links = readmeContainer.querySelectorAll('a');
-                    links.forEach(link => {
-                        link.addEventListener('click', function (event) {
-                            event.preventDefault();
-                            loadMarkdown(link.href);
-                        });
+        // Change 'tuusuario' and 'turepositorio' with your actual GitHub username and repository name
+        var readmeUrl = 'https://raw.githubusercontent.com/jobastrategist01/Portfolio/main/EDA-projects/Movie-profit-Data-Analysis/Movies1980-2020.md';
+
+        // Make a request to get the content of the README.md
+        fetch(readmeUrl)
+            .then(response => response.text())
+            .then(data => {
+                // Convert Markdown content to HTML using Showdown
+                var converter = new showdown.Converter();
+                var htmlContent = converter.makeHtml(data);
+
+                // Insert the HTML content into the container
+                readmeContainer.innerHTML = htmlContent;
+
+                // Find all links in the content and add an event listener
+                var links = readmeContainer.querySelectorAll('a');
+                links.forEach(link => {
+                    link.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        loadMarkdown(link.href);
                     });
-                })
-                .catch(error => {
-                    console.error('Error loading README.md', error);
                 });
-        }
+            })
+            .catch(error => {
+                console.error('Error loading README.md', error);
+            });
+    }
 
-        function loadMarkdown(url) {
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    var converter = new showdown.Converter();
-                    var htmlContent = converter.makeHtml(data);
-                    document.getElementById('readme-content').innerHTML = htmlContent;
-                })
-                .catch(error => {
-                    console.error('Error loading Markdown file', error);
-                });
-        }
+    // Function to load and render the content of a Markdown file
+    function loadMarkdown(url) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                // Convert Markdown content to HTML using Showdown
+                var converter = new showdown.Converter();
+                var htmlContent = converter.makeHtml(data);
 
-        document.addEventListener('DOMContentLoaded', loadReadme);
-    </script>
+                // Insert the HTML content into the container
+                document.getElementById('readme-content').innerHTML = htmlContent;
+            })
+            .catch(error => {
+                console.error('Error loading Markdown file', error);
+            });
+    }
+
+    // Call the function when the page is loaded
+    document.addEventListener('DOMContentLoaded', loadReadme);
+</script>
+
 </body>
 
 </html>
