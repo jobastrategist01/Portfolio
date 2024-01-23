@@ -185,29 +185,32 @@ body {
     font-weight: bold;
     color: #AF0415; /* Adjust color as needed */
 }
-/* Styles for Python code in Markdown */
-pre code.python {
-    display: block;
-    padding: 1em;
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: auto;
-    font-family: 'Courier New', monospace;
-    line-height: 1.5;
-    color: #333;
+
+/* Custom styles for Jupyter code blocks */
+div.input {
+    background-color: #f5f5f5; /* Set background color */
+    padding: 5px; /* Adjust padding as needed */
+    border-radius: 5px; /* Add rounded corners if desired */
+    margin-bottom: 10px; /* Add margin to separate code blocks */
 }
 
-/* Optional: add line numbers */
-pre code.python::before {
-    content: attr(data-line) "\00a0";
-    display: block;
-    counter-increment: line;
-    color: #999;
-    padding-right: 1em;
-    text-align: right;
-    user-select: none;
+div.output_area {
+    background-color: #f5f5f5; /* Set background color for code outputs */
+    padding: 5px; /* Adjust padding as needed */
+    border-radius: 5px; /* Add rounded corners if desired */
+    margin-bottom: 10px; /* Add margin to separate code outputs */
 }
+
+/* Custom style for code input prompts (numbers) */
+div.prompt.input_prompt {
+    color: #888;
+}
+
+/* Custom style for code output prompts (Out) */
+div.prompt.output_prompt {
+    color: #888;
+}
+
 
 /* Responsive styles */
 @media screen and (max-width: 768px) {
