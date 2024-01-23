@@ -12,29 +12,29 @@
     <link href="cache.htaccess">
     <title>Jorge Barros/Marketing Strategist</title>
     <style>
-    /* Additional CSS for the dropdown */
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        top: 45px; /* Adjust this value based on the height of your navbar */
-        right: 0;
-    }
+        /* Additional CSS for the dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            top: 45px; /* Adjust this value based on the height of your navbar */
+            right: 0;
+        }
 
-    .dropdown-content a {
-        padding: 12px 16px;
-        display: block;
-        text-decoration: none;
-        color: #333;
-    }
+        .dropdown-content a {
+            padding: 12px 16px;
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
 
-    .dropdown-content a:hover {
-        background-color: #ddd;
-    }
-</style>
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+    </style>
 
 </head>
 
@@ -62,7 +62,7 @@
         </div>
     </nav>
 
- <!-- Projects Content -->
+    <!-- Projects Content -->
     <div class="projects-container">
         <h1 class="project-headline">My Projects</h1>
 
@@ -76,71 +76,53 @@
         <a href="#projects" class="return-button">Return to Projects</a>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
     <script>
         function toggleMenu() {
             var dropdownContent = document.getElementById("dropdownContent");
             dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
         }
-    </script>
 
-    
-    <!-- Enlazar Showdown desde unpkg -->
-    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
-
-    <script>
-        // Función para cargar y renderizar el contenido del README.md
         function loadReadme() {
             var readmeContainer = document.getElementById('readme-content');
+            var baseUrl = 'https://raw.githubusercontent.com/jobastrategist01/Portfolio/main/';
 
-            // Cambia 'tuusuario' y 'turepositorio' por tus datos reales
-            var readmeUrl = 'https://raw.githubusercontent.com/jobastrategist01/Portfolio/main/README.md';
-
-            // Realizar una solicitud HTTP para obtener el contenido del README.md
-            fetch(readmeUrl)
+            fetch(baseUrl + 'README.md')
                 .then(response => response.text())
                 .then(data => {
-                    // Convertir el contenido de Markdown a HTML usando Showdown
                     var converter = new showdown.Converter();
-                    var htmlContent = converter.makeHtml(data);
+                    var htmlContent = converter.makeHtml(data.replace(/!\[.*?\]\((.*?)\)/g, `![Alt text](${baseUrl}$1)`));
 
-                    // Insertar el contenido HTML en el contenedor
                     readmeContainer.innerHTML = htmlContent;
 
-                    // Buscar todos los enlaces en el contenido y agregar un manejador de eventos
                     var links = readmeContainer.querySelectorAll('a');
                     links.forEach(link => {
                         link.addEventListener('click', function (event) {
-                            event.preventDefault(); // Evitar que el enlace abra la página directamente
-                            loadMarkdown(link.href); // Cargar y mostrar el contenido del enlace
+                            event.preventDefault();
+                            loadMarkdown(link.href);
                         });
                     });
                 })
                 .catch(error => {
-                    console.error('Error al cargar el README.md', error);
+                    console.error('Error loading README.md', error);
                 });
         }
 
-        // Función para cargar y renderizar el contenido de un archivo Markdown
         function loadMarkdown(url) {
             fetch(url)
                 .then(response => response.text())
                 .then(data => {
-                    // Convertir el contenido de Markdown a HTML usando Showdown
                     var converter = new showdown.Converter();
-                    var htmlContent = converter.makeHtml(data);
+                    var htmlContent = converter.makeHtml(data.replace(/!\[.*?\]\((.*?)\)/g, `![Alt text](${baseUrl}$1)`));
 
-                    // Insertar el contenido HTML en el contenedor
                     document.getElementById('readme-content').innerHTML = htmlContent;
                 })
                 .catch(error => {
-                    console.error('Error al cargar el archivo Markdown', error);
+                    console.error('Error loading Markdown file', error);
                 });
         }
 
-        // Llamar a la función al cargar la página
         document.addEventListener('DOMContentLoaded', loadReadme);
     </script>
 </body>
