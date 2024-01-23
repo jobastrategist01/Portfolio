@@ -41,5 +41,5 @@ In every job I've undertaken, the first thing I do is implement a data gathering
 
 ### Most Profitable Movie Genre for New producers
 Imaging that you want to produce a movie with a limited budget, what are the best options to inverst your money?
-[see more](EDA-projects/Movie-profit-Data-Analysis/Movies1980-2020.md)
+[see more](EDA-projects/Movie-profit-Data-Analysis/Movies1980-2020.html)
 
