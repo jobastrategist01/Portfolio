@@ -152,8 +152,9 @@ body {
 
 /* Styles for headlines */
 .right-column .did-you-know-section h1 {
-    font-size: 2.5em;
-    color: #AF0415; /* Adjust color as needed */
+   font-size: 6em;
+    font-weight: 900;
+    color: black;
 }
 
 .right-column .did-you-know-section h2 {
@@ -180,6 +181,10 @@ body {
     color: #AF0415; /* Adjust color as needed */
 }
 
+.right-column .did-you-know-section a {
+    font-weight: bold;
+    color: #AF0415; /* Adjust color as needed */
+}
 /* Responsive styles */
 @media screen and (max-width: 768px) {
     /* Hide regular menu */
@@ -214,10 +219,10 @@ body {
 
     /* Responsive styles for the DID YOU KNOW section in mobile view */
     .right-column .did-you-know-section h1 {
-        font-size: 3em;
-        color: black; /* Use 'color' instead of 'font-color' */
-        font-weight: 900;
-    }
+    font-size: 2.5em;
+    font-weight: 900;
+    color: black;
+}
 
     .right-column .did-you-know-section h2 {
         font-size: 1.8em;
@@ -233,4 +238,7 @@ body {
         font-size: 0.8em;
         margin-bottom: 12px;
     }
-}
+    .right-column .did-you-know-section a {
+    font-weight: bold;
+    color: #AF0415; /* Adjust color as needed */
+    }
