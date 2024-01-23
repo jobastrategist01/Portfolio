@@ -5,11 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=raleway">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <!-- Custom styles for this template -->
     <link href="assets/css/custom.css" rel="stylesheet">
-    <link href="assets/js/navbar.css" rel="stylesheet">
-    <link href="cache.htaccess">
+    <link href="assets/css/navbar.css" rel="stylesheet">
     <title>Jorge Barros/Marketing Strategist</title>
     <style>
         /* Additional CSS for the dropdown */
@@ -35,7 +34,6 @@
             background-color: #ddd;
         }
     </style>
-
 </head>
 
 <body>
@@ -77,23 +75,32 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+    <script src="script.js"></script>
     <script>
         function toggleMenu() {
             var dropdownContent = document.getElementById("dropdownContent");
             dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
         }
 
+        function openProject(projectPath) {
+            console.log('Opening project:', projectPath);
+            loadMarkdown(projectPath);
+        }
+    </script>
+
+    <!-- Link Showdown from unpkg -->
+    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+
+    <script>
         function loadReadme() {
             var readmeContainer = document.getElementById('readme-content');
-            var baseUrl = 'https://raw.githubusercontent.com/jobastrategist01/Portfolio/main/';
+            var readmeUrl = 'https://raw.githubusercontent.com/jobastrategist01/Portfolio/main/README.md';
 
-            fetch(baseUrl + 'README.md')
+            fetch(readmeUrl)
                 .then(response => response.text())
                 .then(data => {
                     var converter = new showdown.Converter();
-                    var htmlContent = converter.makeHtml(data.replace(/!\[.*?\]\((.*?)\)/g, `![Alt text](${baseUrl}$1)`));
-
+                    var htmlContent = converter.makeHtml(data);
                     readmeContainer.innerHTML = htmlContent;
 
                     var links = readmeContainer.querySelectorAll('a');
@@ -114,8 +121,7 @@
                 .then(response => response.text())
                 .then(data => {
                     var converter = new showdown.Converter();
-                    var htmlContent = converter.makeHtml(data.replace(/!\[.*?\]\((.*?)\)/g, `![Alt text](${baseUrl}$1)`));
-
+                    var htmlContent = converter.makeHtml(data);
                     document.getElementById('readme-content').innerHTML = htmlContent;
                 })
                 .catch(error => {
