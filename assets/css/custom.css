@@ -1,21 +1,20 @@
-/* Reset some default styles */
-body, h1, h2, h3, p, ul, li {
-    margin: 0;
-    padding: 0;
-}
-
-/* Apply some basic styling */
+/* General styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    margin: 10px;
+    padding: 10px;
+    background-color: #EFF3EF;
 }
 
-/* Navigation Bar Styles */
+/* Navbar styles */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #333;
+    background-color: #AF0415;
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
     color: #fff;
     padding: 10px;
     display: flex;
@@ -24,86 +23,214 @@ body {
     z-index: 1000;
 }
 
-.nav-links {
+.container {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-.nav-links a {
+.logo {
+    font-size: 1.5em;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    margin-right: 10px;
+}
+
+.menu a {
     color: #fff;
     text-decoration: none;
     margin: 0 15px;
+    transition: font-weight 0.3s;
 }
 
-/* Main Content Styles */
-.main-content {
+.menu a:hover {
+    font-weight: bold;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+    right: 0;
+}
+
+/* Columns layout */
+.columns {
     display: flex;
-    margin-top: 60px; /* Adjust this margin based on your navigation bar height */
+    flex-direction: column; /* Adjusted to stack columns in mobile view */
 }
 
-/* Left Column Styles */
+/* Left column styles */
 .left-column {
     position: fixed;
-    top: 0;
+    top: 45px; /* Adjust this value based on the height of your navbar */
     left: 0;
-    width: 20%;
-    height: 100vh;
-    background-color: #ddd;
-}
-
-/* Right Column Styles */
-.right-column {
-    width: 80%;
+    width: 25%;
+    height: 100%;
     padding: 20px;
+    background-color: #E2E2E2;
+    box-sizing: border-box;
+    z-index: 1; /* Ensure left column stays above right column */
 }
 
-/* Responsive Styles */
+.left-column h2 {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.left-column .subtitle {
+    font-size: 0.8em;
+    margin: 0px 0;
+}
+
+.left-column .main-heading {
+    font-family: 'Raleway', sans-serif;
+    font-size: 4em;
+    font-weight: 900;
+    margin: 5px 0;
+}
+
+.left-column h4 {
+    font-size: 1em;
+    margin-top: 15px;
+}
+
+.left-column h5 {
+    font-size: 0.8em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.left-column a {
+    color: #AF0415;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.left-column a:hover {
+    text-decoration: underline;
+}
+
+/* Right column styles */
+.right-column {
+    width: auto; /* Initial width, adjust as needed */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Add scrollbar if content overflows */
+    margin-left: 25%; /* Adjust this value to match the width of the left column */
+}
+
+.right-column .did-you-know {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2em;
+    font-weight: 900;
+    margin: 5px 0;
+}
+
+/* DID YOU KNOW section styles */
+.right-column .did-you-know-section {
+    font-family: 'Raleway', sans-serif;
+    margin: 5px 0;
+}
+
+/* Styles for headlines */
+.right-column .did-you-know-section h1 {
+    font-size: 2.5em;
+    color: #AF0415; /* Adjust color as needed */
+}
+
+.right-column .did-you-know-section h2 {
+    font-size: 2em;
+    color: #1E1E1E; /* Adjust color as needed */
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.right-column .did-you-know-section h3 {
+    font-size: 1.8em;
+    color: #007BFF; /* Adjust color as needed */
+    margin-top: 15px; /* Adjust margin as needed */
+}
+
+/* Styles for paragraphs */
+.right-column .did-you-know-section p {
+    font-size: 1.2em;
+    color: #555555; /* Adjust color as needed */
+    margin-bottom: 15px; /* Adjust margin as needed */
+}
+
+.right-column .did-you-know-section b {
+    font-weight: bold;
+    color: #AF0415; /* Adjust color as needed */
+}
+
+/* Responsive styles */
 @media screen and (max-width: 768px) {
-    .nav-links {
+    /* Hide regular menu */
+    .menu {
         display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px; /* Adjust this based on your navigation bar height */
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        z-index: 1000;
     }
 
-    .nav-links.show {
+    /* Display hamburger menu */
+    .hamburger-menu {
         display: flex;
+        position: fixed;
+        top: 0;
+        right: 10px; /* Adjust the right position as needed */
     }
 
-    .nav-links a {
-        margin: 0;
-        padding: 10px;
-        text-align: center;
-        width: 100%; /* Ensure full width for links in mobile */
-        box-sizing: border-box;
-    }
-
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar h3 {
-        margin-bottom: 10px;
-    }
-
-    .main-content {
-        flex-direction: column;
-    }
-
+    /* Adjust left column for mobile view */
     .left-column {
         width: 100%;
-        height: auto;
-        position: relative;
-        margin-top: 60px; /* Adjust this based on your navigation bar height */
+        top: 60px; /* Adjust this value based on the height of your navbar */
+        position: static; /* Change position to static for mobile view */
     }
 
+    /* Remove margin for mobile view */
     .right-column {
-        width: 100%;
-        box-sizing: border-box;
-        margin-top: 0; /* Adjust margin-top to remove unnecessary space */
+        margin-left: 0;
+    }
+
+    /* Responsive styles for the DID YOU KNOW section */
+    .right-column .did-you-know-section {
+        font-size: 1.5em;
+    }
+
+    /* Responsive styles for the DID YOU KNOW section in mobile view */
+    .right-column .did-you-know-section h1 {
+        font-size: 3em;
+        color: black; /* Use 'color' instead of 'font-color' */
+        font-weight: 900;
+    }
+
+    .right-column .did-you-know-section h2 {
+        font-size: 1.8em;
+        margin-top: 15px;
+    }
+
+    .right-column .did-you-know-section h3 {
+        font-size: 1.5em;
+        margin-top: 12px;
+    }
+
+    .right-column .did-you-know-section p {
+        font-size: 0.8em;
+        margin-bottom: 12px;
     }
 }
