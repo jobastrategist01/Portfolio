@@ -65,6 +65,9 @@
  <!-- Projects Content -->
     <div class="projects-container">
         <h1 class="project-headline">My Projects</h1>
+        <p>test </p>
+        <a href="#" onclick="loadMarkdown('EDA-projects/Movie-profit-Data-Analysis/Movies1980-2020.md')">Project test</a>
+
 
         <div id="readme-content"></div>
 
@@ -143,6 +146,35 @@
         // Llamar a la función al cargar la página
         document.addEventListener('DOMContentLoaded', loadReadme);
     </script>
+
+//test//
+<script>
+    function loadMarkdown(url) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                // Convert the content of Markdown to HTML using a library (e.g., Showdown)
+                var converter = new showdown.Converter();
+                var htmlContent = converter.makeHtml(data);
+
+                // Replace image paths in the HTML content
+                var correctedHTML = htmlContent.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
+                    // Update image paths based on the structure of your project
+                    return `![${alt}](portfolio/EDA-projects/Movie-profit-Data-Analysis/${src})`;
+                });
+
+                // Render the HTML content in a container
+                document.getElementById('readme-content').innerHTML = correctedHTML;
+            })
+            .catch(error => {
+                console.error('Error loading Markdown content', error);
+            });
+    }
+</script>
+
+    
+
+    
 </body>
 
 </html>
