@@ -185,6 +185,30 @@ body {
     font-weight: bold;
     color: #AF0415; /* Adjust color as needed */
 }
+/* Styles for Python code in Markdown */
+pre code.python {
+    display: block;
+    padding: 1em;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: auto;
+    font-family: 'Courier New', monospace;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Optional: add line numbers */
+pre code.python::before {
+    content: attr(data-line) "\00a0";
+    display: block;
+    counter-increment: line;
+    color: #999;
+    padding-right: 1em;
+    text-align: right;
+    user-select: none;
+}
+
 /* Responsive styles */
 @media screen and (max-width: 768px) {
     /* Hide regular menu */
