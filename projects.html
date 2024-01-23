@@ -99,50 +99,29 @@
             // Cambia 'tuusuario' y 'turepositorio' por tus datos reales
             var readmeUrl = 'https://raw.githubusercontent.com/jobastrategist01/Portfolio/main/README.md';
 
-            // Realizar una solicitud HTTP para obtener el contenido del README.md
-            fetch(readmeUrl)
-                .then(response => response.text())
-                .then(data => {
-                    // Convertir el contenido de Markdown a HTML usando Showdown
-                    var converter = new showdown.Converter();
-                    var htmlContent = converter.makeHtml(data);
+         <!-- Your custom script for loading README content -->
+    <script>
+        // Function to load and render the content of README.md
+        function loadReadme(url, targetId) {
+            var readmeContainer = document.getElementById(targetId);
 
-                    // Insertar el contenido HTML en el contenedor
-                    readmeContainer.innerHTML = htmlContent;
-
-                    // Buscar todos los enlaces en el contenido y agregar un manejador de eventos
-                    var links = readmeContainer.querySelectorAll('a');
-                    links.forEach(link => {
-                        link.addEventListener('click', function (event) {
-                            event.preventDefault(); // Evitar que el enlace abra la página directamente
-                            loadMarkdown(link.href); // Cargar y mostrar el contenido del enlace
-                        });
-                    });
-                })
-                .catch(error => {
-                    console.error('Error al cargar el README.md', error);
-                });
-        }
-
-        // Función para cargar y renderizar el contenido de un archivo Markdown
-        function loadMarkdown(url) {
             fetch(url)
                 .then(response => response.text())
                 .then(data => {
-                    // Convertir el contenido de Markdown a HTML usando Showdown
                     var converter = new showdown.Converter();
                     var htmlContent = converter.makeHtml(data);
 
-                    // Insertar el contenido HTML en el contenedor
-                    document.getElementById('readme-content').innerHTML = htmlContent;
+                    readmeContainer.innerHTML = htmlContent;
                 })
                 .catch(error => {
-                    console.error('Error al cargar el archivo Markdown', error);
+                    console.error('Error loading README.md', error);
                 });
         }
 
-        // Llamar a la función al cargar la página
-        document.addEventListener('DOMContentLoaded', loadReadme);
+        // Load README content for Section 2
+        document.addEventListener('DOMContentLoaded', function () {
+            loadReadme('path/to/project1/README.md', 'readme-content');
+        });
     </script>
 </body>
 
