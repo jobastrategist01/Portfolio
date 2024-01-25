@@ -337,4 +337,23 @@ body {
     .brand-box {
         width: calc(50% - 20px); /* 2 columns on smaller screens */
     }
+}/* Responsive layout for 4 columns on larger screens */
+@media (min-width: 1200px) {
+    .brand-box {
+        width: calc(25% - 20px);
+    }
+}
+
+/* Responsive layout for 3 columns on medium screens */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .brand-box {
+        width: calc(33.33% - 20px);
+    }
+}
+
+/* Responsive layout for 2 columns on smaller screens */
+@media (max-width: 767px) {
+    .brand-box {
+        width: calc(50% - 20px);
+    }
 }
