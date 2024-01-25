@@ -194,6 +194,31 @@ body {
     /* Add more styles as needed */
 }
 
+/* projects boxes*/
+
+/* Style for brand tags */
+.tag {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Style for brand boxes (adjust the width for responsiveness) */
+.brand-box {
+    width: calc(25% - 20px); /* 4 columns on larger screens */
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+
+
 /* Responsive styles */
 @media screen and (max-width: 768px) {
     /* Hide regular menu */
@@ -251,3 +276,10 @@ body {
     font-weight: bold;
     color: #AF0415; /* Adjust color as needed */
     }
+    
+/* Responsive layout for 2 columns on smaller screens */
+@media (max-width: 768px) {
+    .brand-box {
+        width: calc(50% - 20px); /* 2 columns on smaller screens */
+    }
+}
