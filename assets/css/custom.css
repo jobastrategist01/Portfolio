@@ -254,10 +254,21 @@ body {
     transition: transform 0.3s; /* Smooth transition for zoom effect */
 }
 
-/* Zoom effect on image hover */
-.brand-box:hover .brand-image {
-    transform: scale(1.1); /* Adjust the scale factor for the desired zoom level */
+/* Add this CSS for zoom effect on image hover */
+.brand-box {
+    overflow: hidden;
 }
+
+.brand-image {
+    transition: transform 0.3s ease;
+}
+
+.brand-box:hover .brand-image {
+    transform: scale(1.2);
+}
+
+
+
 
 /* Inner overlay on image hover */
 .image-overlay {
