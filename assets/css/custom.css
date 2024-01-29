@@ -213,24 +213,24 @@ body {
     justify-content: space-between;
 }
 
+/* Updated style for brand boxes with folder icon and hover effect */
 .brand-box {
-    position: relative; /* Added position relative for absolute positioning of the image overlay */
-    flex: 0 0 calc(25% - 20px); /* 4 columns on larger screens */
+    position: relative;
+    flex: 0 0 calc(25% - 20px);
     margin: 10px;
     padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 10px;
     text-align: center;
     background-color: #f9f9f9;
-    overflow: hidden; /* Ensure the box doesn't expand to fit oversized images */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
-}
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
 
-/* Responsive layout for 2 columns on smaller screens */
-@media (max-width: 768px) {
-    .brand-box {
-        flex: 0 0 calc(50% - 20px); /* 2 columns on smaller screens */
-    }
+    /* Folder icon styling */
+    background-image: url('path/to/folder-icon.png'); /* Replace with the path to your folder icon image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow for depth */
 }
 
 /* Hover effect */
