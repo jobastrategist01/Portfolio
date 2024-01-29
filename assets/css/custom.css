@@ -226,12 +226,6 @@ body {
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
 }
 
-/* Responsive layout for 2 columns on smaller screens */
-@media (max-width: 768px) {
-    .brand-box {
-        flex: 0 0 calc(50% - 20px); /* 2 columns on smaller screens */
-    }
-}
 
 /* Hover effect */
 .brand-box:hover {
@@ -285,6 +279,13 @@ body {
 .overlay-content {
     color: #AF0415; /* Adjust the content color as needed */
     font-weight: bold;
+}
+
+/* Responsive layout for 2 columns on smaller screens */
+@media (max-width: 768px) {
+    .brand-box {
+        flex: 0 0 calc(50% - 20px); /* 2 columns on smaller screens */
+    }
 }
 
 /* Responsive layout for 4 columns on larger screens */
