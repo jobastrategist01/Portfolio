@@ -204,7 +204,7 @@ body {
 }
 
 /* Projects boxes */
-/* Projects boxes */
+/* projects boxes*/
 
 /* Style for brand tags */
 .tag {
@@ -216,39 +216,57 @@ body {
     background-color: #f9f9f9;
 }
 
-/* Style for brand boxes (adjust the width for responsiveness) */
+/* Style for brand boxes (adjust the max-width for responsiveness) */
+.brand-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .brand-box {
-    width: calc(25% - 20px);
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 calc(25% - 20px); /* 4 columns on larger screens */
     margin: 10px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 10px;
     text-align: center;
     background-color: #f9f9f9;
-    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
 }
 
+/* Responsive layout for 2 columns on smaller screens */
+@media (max-width: 768px) {
+    .brand-box {
+        flex: 0 0 calc(50% - 20px); /* 2 columns on smaller screens */
+    }
+}
 
-/* Style for brand tags */
-.tag {
-    display: inline-block;
-    margin: 5px;
-    padding: 5px;
-    border: 1px solid #ddd;
+/* Hover effect */
+.brand-box:hover {
+    background-color: #AF0415; /* Red background on hover */
+    color: #fff; /* White text on hover */
+}
+
+/* Style for brand images */
+.brand-image-container {
+    position: relative;
+    max-width: 100%;
+    height: auto;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    overflow: hidden;
 }
 
-/* Style for brand boxes (adjust the width for responsiveness) */
-.brand-box {
-    width: calc(25% - 20px);
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    text-align: center;
-    background-color: #f9f9f9;
-    overflow: hidden;
+.brand-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s; /* Smooth transition for zoom effect */
+}
+
+/* Add this CSS for zoom effect on image hover */
+.brand-box:hover .brand-image {
+    transform: scale(1.2);
 }
 
 /* Responsive styles */
