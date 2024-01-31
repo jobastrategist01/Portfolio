@@ -214,6 +214,8 @@ body {
 
 .brand-box:hover .tag {
     color: black; /* Change the text color to black on hover */
+    background-color: blue;
+    
 }
 
 .tag {
@@ -224,10 +226,6 @@ body {
     border-radius: 5px;
     background-color: #f9f9f9;
     transition: color 0.3s; /* Add smooth transition for text color change */
-}
-
-.brand-box:hover .tag {
-    color: black; /* Change the text color to black on hover */
 }
 
 
