@@ -4,11 +4,11 @@ body {
     margin: 10px;
     padding: 10px;
     background-color: #EFF3EF;
-    
 }
 
-.projects-container{
-    width: 20%;
+.projects-container {
+    max-width: 1200px; /* Set a maximum width for the projects container */
+    margin: 0 auto; /* Center the container */
 }
 
 /* Navbar styles */
@@ -216,10 +216,12 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    max-width: 1200px; /* Set a maximum width for the brand container */
+    margin: 20px auto; /* Add margin and center the container */
 }
 
 .brand-box {
-    position: relative; /* Added position relative for absolute positioning of the image overlay */
+    position: relative;
     flex: 0 0 calc(25% - 20px); /* 4 columns on larger screens */
     margin: 10px;
     padding: 10px;
@@ -227,8 +229,9 @@ body {
     border-radius: 10px;
     text-align: center;
     background-color: #f9f9f9;
-    overflow: hidden; /* Ensure the box doesn't expand to fit oversized images */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
+    box-sizing: border-box; /* Add box-sizing to include padding and border in the element's total width */
 }
 
 
