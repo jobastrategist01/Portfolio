@@ -4,7 +4,11 @@ body {
     margin: 10px;
     padding: 10px;
     background-color: #EFF3EF;
-    width: 80%;
+    
+}
+
+.projects-container{
+    width: 20%;
 }
 
 /* Navbar styles */
