@@ -213,8 +213,8 @@ body {
 }
 
 .brand-box:hover .tag {
-    color: black; /* Change the text color to black on hover */
-    background-color: blue;
+    color: #e64757; /* Change the text color to black on hover */
+    background-color: #e02235;
     
 }
 
