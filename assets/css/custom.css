@@ -208,15 +208,24 @@ body {
 /* projects boxes*/
 
 /* Style for brand tags */
+.brand-tags {
+    font-size: 8px; /* Adjust the font size as needed */
+}
+
+.brand-box:hover .tag {
+    color: black; /* Change the text color to black on hover */
+}
+
 .tag {
     display: inline-block;
     margin: 5px;
-    font-size: 0.8em
     padding: 5px;
     border: 2px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
+    transition: color 0.3s; /* Add smooth transition for text color change */
 }
+
 
 /* Style for brand boxes (adjust the max-width for responsiveness) */
 .brand-container {
