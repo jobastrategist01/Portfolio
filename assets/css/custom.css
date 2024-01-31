@@ -226,6 +226,11 @@ body {
     transition: color 0.3s; /* Add smooth transition for text color change */
 }
 
+.brand-box:hover .tag {
+    color: black; /* Change the text color to black on hover */
+}
+
+
 
 /* Style for brand boxes (adjust the max-width for responsiveness) */
 .brand-container {
