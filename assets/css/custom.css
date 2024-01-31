@@ -209,12 +209,13 @@ body {
 
 /* Style for brand tags */
 .brand-tags {
-    font-size: 8px; /* Adjust the font size as needed */
+    font-size: 8px;/* Adjust the font size as needed */
+    font-weight: Bold;
 }
 
 .brand-box:hover .tag {
-    color: #e64757; /* Change the text color to black on hover */
-    background-color: #e02235;
+    color: white; /* Change the text color to black on hover */
+    background-color: #ab2431;
     
 }
 
