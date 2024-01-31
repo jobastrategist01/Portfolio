@@ -46,6 +46,7 @@ body {
 .menu {
     display: flex;
     margin-right: 10px;
+    align-items: center; /* Center align the menu items vertically */
 }
 
 .menu a {
