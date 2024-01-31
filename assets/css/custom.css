@@ -1,5 +1,6 @@
 /* General styles */
 
+/* Navbar styles */
 .navbar {
     position: fixed;
     top: 0;
@@ -15,7 +16,7 @@
     align-items: center;
     z-index: 1000;
     box-sizing: border-box; /* Include padding and border in the element's total width */
-} 
+}
 
 .container {
     display: flex;
@@ -38,29 +39,6 @@ body {
     margin: 0 auto; /* Center the container */
 }
 
-/* Navbar styles */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #AF0415;
-    font-family: 'Raleway', sans-serif;
-    font-weight: normal;
-    color: #fff;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-}
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
 
 .logo {
     font-size: 1.5em;
