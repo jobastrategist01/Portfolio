@@ -1,4 +1,30 @@
 /* projects boxes*/
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.brand-image {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    width: 540px;
+}
+.brand-image img {
+    max-width: 100%;
+    transition: all 0.3s;
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+}
+
+.brand-image:hover img {
+    transform: scale(1.1);
+}
+
 /* Style for brand images */
 .brand-image-container {
     position: relative;
@@ -61,7 +87,7 @@
     margin: 10px;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 10px;
     text-align: center;
     background-color: #f9f9f9;
     overflow: hidden;
