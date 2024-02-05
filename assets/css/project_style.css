@@ -1,11 +1,27 @@
 /* projects boxes*/
 /* Style for brand images */
+.brand-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 350px; /* Set maximum width for brand-box */
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
+    box-sizing: border-box; /* Add box-sizing to include padding and border in the element's total width */
+}
+
 .brand-image-container {
     position: relative;
 }
 
 .brand-image-overlay {
-    width: 100%;
+    width: 100%; /* Set width for the overlay image */
     height: auto;
     position: absolute;
     top: 0;
@@ -14,13 +30,11 @@
 }
 
 .brand-image {
-    width: 100%;
+    width: 100%; /* Make the image fill the container */
     height: auto;
     border-radius: 5px; /* Add rounded corners to the brand-image */
     z-index: 0; /* Set a lower z-index for the brand-image so it appears below the overlay */
 }
-
-
 
 /* Style for brand tags */
 .brand-tags {
