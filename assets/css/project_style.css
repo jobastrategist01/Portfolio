@@ -18,6 +18,7 @@
 
 .brand-image-container {
     position: relative;
+    width: 100%; /* Ensure the container takes the full width */
 }
 
 .brand-image-overlay {
